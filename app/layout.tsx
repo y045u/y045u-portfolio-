@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +16,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body className={cn(inter.className, "min-h-dvh")}>
+        <header className="container h-16 bg-red-300 border-b flex items-center justify-between">
+          <h2>test</h2>
+          <ul className="flex items-center gap-4">
+            <li>Home</li>
+            <li>About</li>
+            <li>about</li>
+          </ul>
+        </header>
+        {children}
+        <footer className="container h-16 bg-red-500 border-t flex items-center top-full sticky">
+          <div>&copy;y</div>
+        </footer>
+      </body>
     </html>
   );
 }
